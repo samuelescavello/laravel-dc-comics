@@ -9,6 +9,78 @@ $fa-font-path: "../webfonts" !default;
 
 @import '~bootstrap/scss/bootstrap';
 
-h1 {
-    color: $text-color;
+
+// **************HEADER*******************
+
+ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    
+     li {
+        color: black;
+        margin: 0 10px;
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+
+            &:hover {
+               color: #0282F9;
+            }
+        }
+    }
+}
+
+header {
+    background-color: #FFFFFF;
+}
+
+ul li {
+    border-bottom: 5px solid rgba(255, 255, 255, 0.0);
+}
+
+ul li:hover {
+    border-bottom: 5px solid #0282F9;
+}
+
+// *****************************FINSHHEADER ***************
+
+// **************MAIN*******************
+
+main {
+    background-color: #1C1C1C;
+    color: white;
+}
+
+#jumbo {
+    height: 400px;
+    background-image: url('../img/jumbotron.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#current {
+    background-color: #0282F9;
+    padding: 8px;
+    width: 235px;
+    transform: translateY(-90%);
+    cursor: pointer;
+
+    &:hover {
+        box-shadow:3px 3px 5px  #0282f986;
+    }
+}
+
+
+.load{
+    background-color: #0282F9;
+    padding: 8px;
+    width: 350px;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow:3px 3px 5px  #0282f986;
+    }   
 }
