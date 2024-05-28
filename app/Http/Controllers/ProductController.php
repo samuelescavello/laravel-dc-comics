@@ -43,11 +43,12 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        
+        return view('products.show', compact('product'));
     }
 
     /**

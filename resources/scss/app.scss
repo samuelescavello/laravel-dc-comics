@@ -73,14 +73,32 @@ main {
     }
 }
 
-
-.load{
+#top {
     background-color: #0282F9;
-    padding: 8px;
-    width: 350px;
-    cursor: pointer;
+        
+    img {
+        width: 50px;
+        height: 60px;
+    }
+    
+    ul {
+        list-style: none;
+        display: flex;
+        
+         li {
+            margin: 0 10px;
+            padding-right: 40px;
+    
+            a {
+                text-decoration: none;
+                color: white;
+                font-weight: 600;
+            }
+        }
+    }
+    
+}
 
-    &:hover {
-        box-shadow:3px 3px 5px  #0282f986;
-    }   
+.show img{
+    height: 400px;
 }
