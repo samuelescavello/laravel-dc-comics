@@ -21,11 +21,11 @@ class ProductController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return
      */
     public function create()
     {
-        //
+        return view('products.create');
     }
 
     /**
@@ -36,7 +36,14 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $form_data = $request->all();
+        $new_product = new Product();
+        $new_product->thumb=$form_data['thumb'];
+        $new_product->price=$form_data['price'];
+        $new_product->series=$form_data['series'];
+        $new_product->type=$form_data['type'];
+        $new_product->save();
+        return redirect()->route('products.index');
     }
 
     /**
