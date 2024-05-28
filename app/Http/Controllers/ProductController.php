@@ -62,11 +62,11 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        //
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -74,11 +74,18 @@ class ProductController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return 
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $form_data = $request->all();
+        $product->thumb=$form_data['thumb'];
+        $product->price=$form_data['price'];
+        $product->series=$form_data['series'];
+        $product->type=$form_data['type'];
+        $product->update();
+        return redirect()->route('products.show', $product->id);
     }
 
     /**
