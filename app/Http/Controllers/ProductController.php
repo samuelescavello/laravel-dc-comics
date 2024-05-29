@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -34,15 +37,9 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {   
-        $request->validate([
-            'thumb'=>'max:255|nullable',
-            'series'=>'max:255|min:3|required',
-            'type'=>'max:255|required',
-            'price'=>'required|integer|min:1',
-
-        ]);
+        $form_data = $request->validated();
         $form_data = $request->all();
         $new_product = new Product();
         $new_product->thumb=$form_data['thumb'];
@@ -83,8 +80,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return 
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProductRequest $request, $id)
     {
+        $form_data = $request->validated();
+        $form_data =$request->all();
         $product = Product::find($id);
         $form_data = $request->all();
         $product->thumb=$form_data['thumb'];
@@ -104,6 +103,31 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        return redirect()->route('products.index');
         
     }
+
+    // public function validation($data){
+
+    //     $validator = Validator::make($data,[
+    //         'thumb'=>'max:255|nullable',
+    //         'series'=>'max:255|min:3|required',
+    //         'type'=>'max:255|required',
+    //         'price'=>'required|integer|min:1',
+    //     ],[
+    //         'thumb.max'=>'Lunghezza massima 255 caratteri',
+    //         'series.required'=>'Campo obbligatorio',
+    //         'series.max'=>'Lunghezza massima 255 caratteri',
+    //         'series.min'=>'Lunghezza minima 3 caratteri',
+    //         'type.required'=>'Campo obbligatorio',
+    //         'type.max'=>'Lunghezza massima 255 caratteri',
+    //         'price.required'=>'Campo obbligatorio',
+    //         'price.min'=>'Valore minimo 1',
+    //         'price.integer'=>'Valore numerico',
+
+    //     ])->validate();
+
+    //     return $validator;
+
+    // }
 }

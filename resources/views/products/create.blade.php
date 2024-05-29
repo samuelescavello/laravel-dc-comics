@@ -40,7 +40,7 @@
         </div>
         <div class="mb-3">
             <label for="type" class="form-label">type</label>
-            <select class="form-control" id="type" name="type">
+            <select class="form-control" id="type" name="type" value="{{old('type')}}">
                 <option value="comic book">comic book</option>
                 <option value="graphic novel">graphic novel</option>
             </select>
