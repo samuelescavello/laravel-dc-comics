@@ -35,7 +35,14 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $request->validate([
+            'thumb'=>'max:255|nullable',
+            'series'=>'max:255|min:3|required',
+            'type'=>'max:255|required',
+            'price'=>'required',
+
+        ]);
         $form_data = $request->all();
         $new_product = new Product();
         $new_product->thumb=$form_data['thumb'];
