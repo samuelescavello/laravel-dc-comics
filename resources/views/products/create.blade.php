@@ -18,14 +18,14 @@
 
         <div class="mb-3">
             <label for="thumb" class="form-label">thumb</label>
-            <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" placeholder="inserisci immagine">
+            <input type="text" class="form-control @error('thumb') is-invalid @enderror" id="thumb" name="thumb" placeholder="inserisci immagine" value="{{old('thumb')}}">
             @error('thumb')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror    
         </div>
         <div class="mb-3">
             <label for="price" class="form-label">price</label>
-            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="inserisci prezzo">
+            <input type="text" class="form-control @error('price') is-invalid @enderror" id="price" name="price" placeholder="inserisci prezzo" value="{{old('price')}}">
             <div id="pricehelp" class="form-text">inserisci caratteri numerici</div>
             @error('price')
                 <div class="alert alert-danger">{{$message}}</div>
@@ -33,7 +33,7 @@
         </div>
         <div class="mb-3">
             <label for="seriess" class="form-label">series</label>
-            <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" placeholder="inserisci serie">
+            <input type="text" class="form-control @error('series') is-invalid @enderror" id="series" name="series" placeholder="inserisci serie" value="{{old('series')}}">
             @error('series')
                 <div class="alert alert-danger">{{$message}}</div>
             @enderror

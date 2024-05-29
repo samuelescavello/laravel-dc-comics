@@ -40,7 +40,7 @@ class ProductController extends Controller
             'thumb'=>'max:255|nullable',
             'series'=>'max:255|min:3|required',
             'type'=>'max:255|required',
-            'price'=>'required',
+            'price'=>'required|integer|min:1',
 
         ]);
         $form_data = $request->all();
